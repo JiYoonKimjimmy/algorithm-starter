@@ -11,21 +11,19 @@ import me.jimmyberg.algorithm.common.PrintUtil;
 public class SelectionSort01 {
     public static void main(String[] args) {
         int[] sample = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
-        int temp, index = 0;
-
         for (int i = 0; i < sample.length; i++) {
             int min = 99;
-            for (int j = i ; j < sample.length; j++) {
-                if (min > sample[j]) {
+            int index = -1;
+            for (int j = i; j < sample.length; j++) {
+                if (sample[j] < min) {
                     min = sample[j];
                     index = j;
                 }
             }
-            temp = sample[i];
+            int temp = sample[i];
             sample[i] = sample[index];
             sample[index] = temp;
         }
-
         PrintUtil.printIntArray(sample);
     }
 }

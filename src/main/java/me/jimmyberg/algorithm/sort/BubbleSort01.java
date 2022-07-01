@@ -9,18 +9,16 @@ import me.jimmyberg.algorithm.common.PrintUtil;
  */
 public class BubbleSort01 {
     public static void main(String[] args) {
-        int[] sample = {1, 9, 5, 8, 7, 6, 4, 3, 2, 10};
-
+        int[] sample = {1, 10, 9, 5, 8, 7, 6, 4, 3, 2};
         for (int i = 0; i < sample.length; i++) {
-            for (int j = 0; j < sample.length - 1; j++) {
+            for (int j = 0; j < (sample.length - 1) - i; j++) {
                 if (sample[j] > sample[j + 1]) {
-                    int temp = sample[j + 1];
-                    sample[j + 1] = sample[j];
-                    sample[j] = temp;
+                    int temp = sample[j];
+                    sample[j] = sample[j + 1];
+                    sample[j + 1] = temp;
                 }
             }
         }
-
         PrintUtil.printIntArray(sample);
     }
 }
