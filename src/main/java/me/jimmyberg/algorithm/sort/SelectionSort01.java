@@ -1,5 +1,7 @@
 package me.jimmyberg.algorithm.sort;
 
+import me.jimmyberg.algorithm.common.PrintUtil;
+
 /**
  * Selection Sort (선택 정렬)
  * - 시간 복잡도 : N + (N + 1) = O(N^2)
@@ -13,7 +15,6 @@ public class SelectionSort01 {
         int temp, index = 0;
 
         for (int i = 0; i < sample.length; i++) {
-            System.out.println(i + " : " + sample[i]);
             int min = 99;
             for (int j = i ; j < sample.length; j++) {
                 if (min > sample[j]) {
@@ -26,10 +27,7 @@ public class SelectionSort01 {
             sample[index] = temp;
         }
 
-        for (int i : sample) {
-            System.out.print(i + " ");
-        }
-
+        PrintUtil.printIntArray(sample);
     }
 
 }

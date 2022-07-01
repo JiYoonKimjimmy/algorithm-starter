@@ -1,5 +1,7 @@
 package me.jimmyberg.algorithm.sort;
 
+import me.jimmyberg.algorithm.common.PrintUtil;
+
 /**
  * Bubble Sort (버블 정렬)
  * - 시간 복잡도 : O(N^2)
@@ -19,8 +21,6 @@ public class BubbleSort01 {
             }
         }
 
-        for (int i : sample) {
-            System.out.print(i + " ");
-        }
+        PrintUtil.printIntArray(sample);
     }
 }
