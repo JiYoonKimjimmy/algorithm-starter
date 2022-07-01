@@ -6,4 +6,21 @@ package me.jimmyberg.algorithm.sort;
  * - 인접해 있는 항목 2개를 비교하여 작은 것을 앞으로 보내어 정렬한다.
  */
 public class BubbleSort01 {
+    public static void main(String[] args) {
+        int[] sample = {1, 9, 5, 8, 7, 6, 4, 3, 2, 10};
+
+        for (int i = 0; i < sample.length; i++) {
+            for (int j = 0; j < sample.length - 1; j++) {
+                if (sample[j] > sample[j + 1]) {
+                    int temp = sample[j + 1];
+                    sample[j + 1] = sample[j];
+                    sample[j] = temp;
+                }
+            }
+        }
+
+        for (int i : sample) {
+            System.out.print(i + " ");
+        }
+    }
 }
