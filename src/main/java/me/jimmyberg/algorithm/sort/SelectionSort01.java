@@ -9,7 +9,6 @@ import me.jimmyberg.algorithm.common.PrintUtil;
  * - 작은 것을 순차적으로 앞으로 swap 하여 정렬한다.
  */
 public class SelectionSort01 {
-
     public static void main(String[] args) {
         int[] sample = {1, 10, 5, 8, 7, 6, 4, 3, 2, 9};
         int temp, index = 0;
@@ -29,5 +28,4 @@ public class SelectionSort01 {
 
         PrintUtil.printIntArray(sample);
     }
-
 }
