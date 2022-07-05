@@ -1,6 +1,6 @@
 package me.jimmyberg.algorithm.sort;
 
-import me.jimmyberg.algorithm.common.PrintUtil;
+import me.jimmyberg.algorithm.common.CommonUtil;
 
 /**
  * Selection Sort (선택 정렬)
@@ -24,6 +24,6 @@ public class SelectionSort01 {
             sample[i] = sample[index];
             sample[index] = temp;
         }
-        PrintUtil.printIntArray(sample);
+        CommonUtil.printIntArray(sample);
     }
 }

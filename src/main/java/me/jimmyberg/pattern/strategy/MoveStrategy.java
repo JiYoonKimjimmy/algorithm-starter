@@ -1,4 +1,4 @@
-package me.jimmyberg.algorithm.pattern.strategy;
+package me.jimmyberg.pattern.strategy;
 
 public interface MoveStrategy {
     void move();

@@ -1,6 +1,6 @@
 package me.jimmyberg.algorithm.sort;
 
-import me.jimmyberg.algorithm.common.PrintUtil;
+import me.jimmyberg.algorithm.common.CommonUtil;
 
 /**
  * Bubble Sort (버블 정렬)
@@ -19,6 +19,6 @@ public class BubbleSort01 {
                 }
             }
         }
-        PrintUtil.printIntArray(sample);
+        CommonUtil.printIntArray(sample);
     }
 }
