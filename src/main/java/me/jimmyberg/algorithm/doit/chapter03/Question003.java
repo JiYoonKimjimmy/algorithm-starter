@@ -15,6 +15,16 @@ import java.util.StringTokenizer;
  */
 public class Question003 {
     public static void main(String[] args) {
+        try {
+//            solution1();
+//            solution2();
+            solution3();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void solution1() {
         Scanner sc = new Scanner(System.in);
 
         String[] settings = sc.nextLine().split(" ");
@@ -39,10 +49,9 @@ public class Question003 {
             int j = sc.nextInt();
             System.out.println(i + " ~ " + j + " = " + (numbers[j] - numbers[i - 1]));
         }
-
     }
 
-    public static void solution() throws IOException {
+    public static void solution2() throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
@@ -61,6 +70,28 @@ public class Question003 {
             int i = Integer.parseInt(st.nextToken());
             int j = Integer.parseInt(st.nextToken());
             System.out.println(S[j] - S[i - 1]);
+        }
+    }
+
+    public static void solution3() {
+        Scanner sc = new Scanner(System.in);
+        int suNo = sc.nextInt();
+        int quizNo = sc.nextInt();
+        System.out.println("suNo = " + suNo);
+        System.out.println("quizNo = " + quizNo);
+
+        int[] numbers = new int[suNo + 1];
+        for (int i = 1; i <= suNo; i++) {
+            int number = sc.nextInt();
+            numbers[i] = number + numbers[i - 1];
+        }
+        CommonUtil.printIntArray(numbers);
+
+        for (int q = 0; q < quizNo; q++) {
+            int i = sc.nextInt();
+            int j = sc.nextInt();
+            int sum = numbers[j] - numbers[i - 1];
+            System.out.println("sum = " + sum);
         }
     }
 }
