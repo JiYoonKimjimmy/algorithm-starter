@@ -1,7 +1,5 @@
 package me.jimmyberg.algorithm.doit.chapter03;
 
-import me.jimmyberg.algorithm.common.CommonUtil;
-
 import java.util.Scanner;
 
 /**
@@ -23,10 +21,13 @@ public class Question009 {
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int S = 4;
-        int P = 2;
+        int S = sc.nextInt();
+        int P = sc.nextInt();
         int result = 0;
-        char[] A = {'G', 'A', 'T', 'A'};
+        char[] A = new char[S];
+        for (int i = 0; i < A.length; i++) {
+            A[i] = sc.next().charAt(0);
+        }
 
         // checkArr 입력하면서, 0 인 경우 check + 1 (0 인 문자는 체크할 필요없으니까)
         for (int i = 0; i < checkArr.length; i++) {
