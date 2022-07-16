@@ -16,25 +16,29 @@ public class Question011 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
-        int[] arr = {4, 3, 6, 8, 7, 5, 2, 1};
+//        int[] arr = {4, 3, 6, 8, 7, 5, 2, 1};
+        int[] arr = new int[N];
+        for (int i = 0; i < N; i++) {
+            arr[i] = sc.nextInt();
+        }
 
         List<String> result = new ArrayList<>();
         Stack<Integer> stack = new Stack<>();
+        int num = 1;
 
-        for (int i = 1; i <= N; i++) {
-            int k = arr[i - 1];
-
-            if (i <= k) {
-                while (i <= k) {
-                    stack.push(i);
+        for (int k : arr) {
+            if (num <= k) {
+                while (num <= k) {
+                    stack.push(num++);
                     result.add("+");
                 }
                 stack.pop();
                 result.add("-");
             } else {
                 int p = stack.pop();
-                if (p > i) {
+                if (p > k) {
                     System.out.println("NO");
+                    result.clear();
                     break;
                 } else {
                     result.add("-");
