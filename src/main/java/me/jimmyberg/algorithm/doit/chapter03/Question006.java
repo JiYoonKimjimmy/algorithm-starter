@@ -1,7 +1,5 @@
 package me.jimmyberg.algorithm.doit.chapter03;
 
-import me.jimmyberg.algorithm.common.CommonUtil;
-
 import java.util.Scanner;
 
 /**
@@ -13,6 +11,10 @@ import java.util.Scanner;
  *  - 7 + 8
  *  - 15
  * - 총 : 4
+ *
+ * [Key Point]
+ * - 두 포인터 활용!
+ * - start 부터 end 까지의 구간 합을 구하면서, 조건에 맞는 합인 경우 count!
  */
 public class Question006 {
     public static void main(String[] args) {

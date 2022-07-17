@@ -12,6 +12,9 @@ import java.util.StringTokenizer;
  * 문제 003. 구간 합 구하기
  * - N 개의 수의 i 번째 수에서 j 번째 수까지의 합 구하기
  * - S[i] = S[i - 1] + A[i] 공식을 이용하여 풀어보기
+ *
+ * [Key Point]
+ * - 배열의 각 구간의 합을 미리 계산하여 저장!
  */
 public class Question003 {
     public static void main(String[] args) {

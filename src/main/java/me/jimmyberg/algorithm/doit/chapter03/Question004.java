@@ -8,6 +8,10 @@ import java.util.Scanner;
  * - N x N 숫자 입력 표 A
  * - N x N 각 구간별 합산 표 D
  * - 구간별 합산 = 해당 구간을 둘러싼 구간 합을 빼면 시작점부터 끝점까지의 구간 합!!
+ *
+ * [Key Point]
+ * - 각 구간의 합에 대한 수식 정리 필요!
+ * - 정리된 수식으로 배열을 미리 계산하여 저장!
  */
 public class Question004 {
     public static void main(String[] args) {
