@@ -1,11 +1,12 @@
 package me.jimmyberg.algorithm.doit.chapter04;
 
-import me.jimmyberg.algorithm.common.CommonUtil;
+import java.util.Scanner;
 
 /**
  * 문제 018. ATM 인출 시간 계산하기
  * - 1 ~ N 번까지의 사람이 P 분씩 현금 인출 시간이 걸린다고 할 때, 모든 사람이 현금 인출 만료되는 최솟값 시간 구하기
- * -
+ * - 입력 : 3 1 4 3 2
+ * - 출력 : (1) + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 3) + (1 + 2 + 3 + 3 + 4) = 32
  *
  * [Key Point]
  * - `그리디 방식` 활용하기!
@@ -20,8 +21,12 @@ import me.jimmyberg.algorithm.common.CommonUtil;
  */
 public class Question018 {
     public static void main(String[] args) {
-        int N = 5;
-        int[] P = {3, 1, 4, 3, 2};
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
+        int[] P = new int[N];
+        for (int i = 0; i < N; i++) {
+            P[i] = sc.nextInt();
+        }
         int[] S = new int[N];
         for (int i = 0; i < N - 1; i++) {
             int j = i;
