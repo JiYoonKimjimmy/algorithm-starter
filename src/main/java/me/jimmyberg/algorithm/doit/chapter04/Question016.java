@@ -1,6 +1,5 @@
 package me.jimmyberg.algorithm.doit.chapter04;
 
-import me.jimmyberg.algorithm.common.CommonUtil;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
