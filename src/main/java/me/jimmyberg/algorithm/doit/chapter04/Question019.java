@@ -3,7 +3,7 @@ package me.jimmyberg.algorithm.doit.chapter04;
 import me.jimmyberg.algorithm.common.CommonUtil;
 
 /**
- * 문제 019. K 번째 수 구하기 (복습 필요!)
+ * 문제 019. K 번째 수 구하기 (TODO 복습 필요!)
  * - N 개의 수를 오름차순 정렬하고, K 번째의 수 구하기
  *
  * [Key Point]
@@ -20,7 +20,7 @@ public class Question019 {
     public static void main(String[] args) {
         int N = 5;
         int K = 3;
-        int[] A = {4, 1, 2, 4, 5};
+        int[] A = {4, 1, 2, 3, 5};
 
         quickSort(A, 0, N - 1, K - 1);
 
@@ -31,10 +31,9 @@ public class Question019 {
     public static void quickSort(int[] A, int S, int E, int K) {
         if (S < E) {
             int P = partition(A, S, E);
-            if (P == K) return;
-            else if (K < P) {
+            if (K < P) {
                 quickSort(A, S, P - 1, K);
-            } else {
+            } else if (K != P) {
                 quickSort(A, P + 1, E, K);
             }
         }
