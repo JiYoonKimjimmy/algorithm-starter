@@ -27,8 +27,8 @@ public class Question020 {
     public static void sort(int start, int end) {
         if (end - start < 1) return;
 
-        int mid = (start + end) / 2;
-        int mid2 = start + (end - start) / 2;
+//        int mid = (start + end) / 2;
+        int mid = start + (end - start) / 2;
 
         sort(start, mid);
         sort(mid + 1, end);
@@ -49,7 +49,6 @@ public class Question020 {
             System.out.print(", index1 = " + index1);
             System.out.print(", index2 = " + index2);
             System.out.print(", mid = " + mid);
-            System.out.print(", mid2 = " + mid2);
             System.out.println();
 
             if (temp[index1] > temp[index2]) {
@@ -69,16 +68,12 @@ public class Question020 {
 
         // 나머지 배열 정리
         while (index1 <= mid) {
-            A[k] = temp[index1];
-            k++;
-            index1++;
+            A[k++] = temp[index1++];
         }
         System.out.print("A-1 = ");
         CommonUtil.printIntArray(A);
         while (index2 <= end) {
-            A[k] = temp[index2];
-            k++;
-            index2++;
+            A[k++] = temp[index2++];
         }
         System.out.print("A-2 = ");
         CommonUtil.printIntArray(A);
