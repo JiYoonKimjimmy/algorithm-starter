@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- * 문제 023. 연결 요소의 개수 구하기
+ * 문제 023. 연결 요소의 개수 구하기 (`DFS` 활용)
  * - 방향 없는 그래프가 주어졌을 때, 연결 요소(Connected Component)의 개수를 구하는 프로그램 구현하기
  *
  * [Key Point]
