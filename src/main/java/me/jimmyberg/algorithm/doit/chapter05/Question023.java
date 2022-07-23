@@ -20,8 +20,7 @@ import java.util.Scanner;
  * 3 4
  * 4 6
  *
- * // 결과값
- * 2
+ * 2    // 결과값
  */
 public class Question023 {
     static List<List<Integer>> A;
@@ -65,7 +64,6 @@ public class Question023 {
             System.out.println();
         }
 
-
         System.out.println("count = " + count);
     }
 
@@ -75,6 +73,7 @@ public class Question023 {
         visited[k] = true;
 
         for (Integer i : A.get(k)) {
+            // 재귀 호출 방식으로 dfs 수행
             dfs(i);
         }
     }
