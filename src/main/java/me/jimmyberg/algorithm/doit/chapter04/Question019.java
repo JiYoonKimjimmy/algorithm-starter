@@ -8,6 +8,7 @@ import me.jimmyberg.algorithm.common.CommonUtil;
  *
  * [Key Point]
  * - `퀵 정렬` 활용하기!
+ * - `퀵 정렬` 시간 복잡도 : O(NlogN)
  *  1. `퀵 정렬` 은 `투 포인터` 와 pivot 을 설정하여 집합 분리하여 정렬한다.
  *      1.1. start < pivot 인 경우, start++ 이동
  *      1.2. end > pivot 인 경우, end-- 이동
