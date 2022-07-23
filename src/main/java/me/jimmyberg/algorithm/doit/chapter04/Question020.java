@@ -8,6 +8,7 @@ import me.jimmyberg.algorithm.common.CommonUtil;
  *
  * [Key Point]
  * - `병합 정렬` 활용하기!
+ * - `병합 정렬` 시간 복잡도 : O(NlogN)
  *  1. 배열의 크기를 2 그룹씩 나눠서 정렬한다.
  *      - 8 개 배열 -> 4 x 4 -> 2 x 2 | 2 x 2 -> ...
  *  2. 정렬이 완료된 배열을 병합하면서 다시 정렬한다.
