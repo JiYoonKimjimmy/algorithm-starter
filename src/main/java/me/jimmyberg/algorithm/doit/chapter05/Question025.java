@@ -1,5 +1,7 @@
 package me.jimmyberg.algorithm.doit.chapter05;
 
+import me.jimmyberg.algorithm.common.CommonUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -33,17 +35,18 @@ import java.util.Scanner;
  */
 public class Question025 {
     static List<List<Integer>> A;
-    static boolean[] visited;
+    static Boolean[] visited;
     static boolean arrive;
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();
         int M = sc.nextInt();
-        visited = new boolean[N + 1];
+        visited = new Boolean[N + 1];
         A = new ArrayList<>();
         for (int i = 0; i <= N; i++) {
             A.add(new ArrayList<>());
+            visited[i] = false;
         }
         for (int i = 0; i < M; i++) {
             int a = sc.nextInt();
@@ -71,6 +74,7 @@ public class Question025 {
         }
 
         visited[k] = true;
+        CommonUtil.printArray(visited);
 
         for (Integer i : A.get(k)) {
             if (!visited[i]) {
@@ -78,6 +82,6 @@ public class Question025 {
             }
         }
 
-        visited[k] = false;     // 이게 왜 필요할까?
+//        visited[k] = false;     // 이게 왜 필요할까?
     }
 }
