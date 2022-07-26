@@ -10,11 +10,24 @@ import java.util.*;
  *
  * [Key Point]
  * - `DFS` 와 `BFS` 를 구현하고 동시 수행한다!
+ *
+ * [Sample]
+ * 5 5 3
+ * 5 4
+ * 5 2
+ * 1 2
+ * 3 4
+ * 3 1
+ *
+ * // dfs 실행 순서
+ * 3 1 2 5 4
+ * // bfs 실행 순서
+ * 3 1 4 2 5
  */
 public class Question026 {
+    static List<List<Integer>> graph = new ArrayList<>();
     static List<String> dfs_result = new ArrayList<>();
     static List<String> bfs_result = new ArrayList<>();
-    static List<List<Integer>> graph = new ArrayList<>();
     static boolean[] dfs_visited;
     static boolean[] bfs_visited;
 
