@@ -1,4 +1,4 @@
-package me.jimmyberg.algorithm.sort;
+package me.jimmyberg.algorithm.basic.sort;
 
 import me.jimmyberg.algorithm.common.CommonUtil;
 
