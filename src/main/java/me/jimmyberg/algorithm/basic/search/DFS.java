@@ -12,45 +12,71 @@ import java.util.Scanner;
  * - 다른 쪽 분기를 다시 `최대 깊이` 까지 탐색한다.
  *
  * [인접 리스트 Sample]
- * 8 8
- * 1 7
- * 3 7
- * 4 7
+ * 6 6  // node 수, edge 수
+ * 1 2
+ * 1 3
+ * 2 5
+ * 2 6
  * 3 4
  * 4 6
- * 3 5
- * 0 4
- * 2 7
+ *
+ * // DFS 실행 결과
+ * 1 -> 3 -> 4 -> 6 -> 2 -> 5
  */
 public class DFS {
+    static List<List<Integer>> graph;
+    static Boolean[] visited;
+    static List<String> result = new ArrayList<>();
 
     public static void main(String[] args) {
+        System.out.println("============ START =============");
         Scanner sc = new Scanner(System.in);
         int N = sc.nextInt();   // 노드 갯수
         int E = sc.nextInt();   // 연결 에지 갯수
 
-        List<List<Integer>> graph = new ArrayList<>();
+        graph = new ArrayList<>();
+        visited = new Boolean[N + 1];
 
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i <= N; i++) {
             graph.add(new ArrayList<>());
+            visited[i] = false;
         }
 
-        for (int i = 0; i < graph.size(); i++) {
+        for (int i = 0; i < E; i++) {
             int a = sc.nextInt();
             int b = sc.nextInt();
-
             graph.get(a).add(b);
             graph.get(b).add(a);
         }
-        System.out.println("================================");
+
         for (int i = 0; i < graph.size(); i++) {
-            System.out.print(i + " : ");
-            for (Integer integer : graph.get(i)) {
-                System.out.print(integer + " ");
+            if (!visited[i]) {
+                // i 번째 node 방문하지 않은 경우, 탐색 시작
+                dfs(i);
             }
-            System.out.println();
         }
-        System.out.println("================================");
+
+        System.out.println("result : " + String.join(" -> ", result));
+    }
+
+    static void dfs(int k) {
+        if (visited[k]) {
+            // k 번째 node 를 이미 방문한 경우
+            return;
+        }
+
+        // k 번째 node 방문 처리
+        visited[k] = true;
+        // 방문 node 결과 저장
+        result.add(String.valueOf(k));
+
+        List<Integer> child = graph.get(k);
+        for (int i = child.size() - 1; i >= 0; i--) {
+            int index = child.get(i);
+            if (!visited[index]) {
+                dfs(index);
+            }
+        }
 
     }
 }
