@@ -13,7 +13,7 @@ import java.util.Scanner;
  * - 총 : 4
  *
  * [Key Point]
- * - 두 포인터 활용!
+ * - `투 포인터` 활용!
  * - start 부터 end 까지의 구간 합을 구하면서, 조건에 맞는 합인 경우 count!
  */
 public class Question006 {

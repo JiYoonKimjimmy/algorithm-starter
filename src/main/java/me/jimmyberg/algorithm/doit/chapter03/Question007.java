@@ -8,6 +8,9 @@ import java.util.Scanner;
 /**
  * 문제 007. 주몽의 명령
  * - 재료의 배열 요소간의 합 중에 주어진 숫자와 일치한 경우의 수 구하기
+ *
+ * [Key Point]
+ * - `투 포인터` 활용!
  */
 public class Question007 {
     public static void main(String[] args) {
