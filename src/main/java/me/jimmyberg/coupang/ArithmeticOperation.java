@@ -20,8 +20,18 @@ import java.util.Stack;
  * - '여는 괄호 `(`' 는 스택에 `push` 한다.
  * - '닫는 괄호 `)`' 는 '여는 괄호' 가 나올 때까지 스택에 있는 연산자를 모두 `pop` 한다.
  * [Sample]
- * input : "1 + 2-3 + 5-2 * 5-3"
+ * 1.
+ * input : "1 + 2-3 + 5-2 + 5-3"    // 1234253+-+-+-
+ * output : 5
+ * 1.
+ * input : "1 + 2-3 + 5-2 * 5-3"    // 12+3-5+25*-3-
  * output : -8
+ * 2.
+ * input : "(1 + 2) * (3 + 4)"      // 12+34+*
+ * output : 21
+ * 3.
+ * input : "( 1 * ( 2 + 3 )) - 4"   // 123+*4-
+ * output : 1
  */
 public class ArithmeticOperation {
     static HashMap<Character, Integer> op_map = new HashMap<>() {{
@@ -34,9 +44,7 @@ public class ArithmeticOperation {
     }};
 
     public static void main(String[] args) {
-//        String str = "1 + 2-3 + 5-2 * 5-3";     // -8
-//        String str = "(1 + 2) * (3 + 4)";       // 21
-        String str = "( 1 * ( 2 + 3 )) - 4";      // 1
+        String str = "( 1 * ( 2 + 3 )) - 4";
         System.out.println("str = " + str);
 
         Stack<Character> op_stack = new Stack<>();
