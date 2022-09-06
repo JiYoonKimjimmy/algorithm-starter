@@ -16,6 +16,7 @@ import java.util.stream.Stream;
  * [Key Point]
  * - 완전 탐색 기법을 활용하지만, 몇 번째 깊이에서 원하는 값을 찾을 수 있는 `BFS` 알고리즘을을 활용!
  * - `BFS` 알고리즘은 해당 깊이에서 탐색을 마친 후, 다음 깊이로 넘어가기 때문에 이 문제에 더 어울리는 기법이다!
+ * - !! 매우 중요 !! 현재 노드의 깊이를 연결 노드 중 제일 큰 값 + 1 하여 저장 !!
  */
 public class Question027 {
 //    static int[][] matrix = {
