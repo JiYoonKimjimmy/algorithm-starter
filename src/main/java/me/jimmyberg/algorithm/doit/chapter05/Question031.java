@@ -22,6 +22,7 @@ public class Question031 {
             int count = 0;
 
             for (int i = 1; i <= N; i++) {
+                // 중앙 인덱스보다 작거나 같은 수 = Math.min(중앙 인덱스 / i, N)
                 count += Math.min(middle / i, N);
             }
 
