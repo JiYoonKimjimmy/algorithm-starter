@@ -12,11 +12,13 @@ public class SieveOfEratosthenes {
             A[i - 1] = i;
         }
 
-        for (int i = 1; i < A.length; i++) {
+        for (int i = 0; i < A.length; i++) {
             int t = A[i];
-            for (int j = i + 1; j < A.length; j++) {
-                if (t != 1 && A[j] % t == 0) {
-                    A[j] = 1;
+            if (t != 1) {
+                for (int j = i + 1; j < A.length; j++) {
+                    if (A[j] % t == 0) {
+                        A[j] = 1;
+                    }
                 }
             }
         }
