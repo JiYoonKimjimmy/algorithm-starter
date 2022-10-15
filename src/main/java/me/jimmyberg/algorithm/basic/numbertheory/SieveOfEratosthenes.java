@@ -1,4 +1,4 @@
-package me.jimmyberg.algorithm.basic;
+package me.jimmyberg.algorithm.basic.numbertheory;
 
 import java.util.ArrayList;
 import java.util.List;
