@@ -17,7 +17,7 @@ package me.jimmyberg.coupang;
 public class MyFindFixedPoint {
     public static void main(String[] args) {
         int[] A = {-16, -15, 1, 2, 5, 6};
-//        solution01(A);
+        solution01(A);
         solution02(A);
     }
 
