@@ -19,7 +19,7 @@ class Test03 {
      * - 0 <= number[i] <= 10^9
      */
     fun solution(numbers: IntArray): Int {
-        return findMagicPairs2(numbers) % 1000000007
+        return findMagicPairs(numbers) % 1000000007
     }
 
     private fun findMagicPairs(numbers: IntArray): Int {
@@ -30,22 +30,6 @@ class Test03 {
                 if (checkMagicPair(numbers, i, j)) {
                     count++
                 }
-            }
-        }
-
-        return count
-    }
-
-    private fun findMagicPairs2(numbers: IntArray): Int {
-        var count = 0
-
-        for (i in numbers.indices) {
-            var right = numbers.lastIndex
-            while (i < right) {
-                if (checkMagicPair(numbers, i, right)) {
-                    count++
-                }
-                right--
             }
         }
 
