@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.buketplace.`2024`
+package me.jimmyberg.algrorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions.assertArrayEquals
 import org.junit.jupiter.api.Test
@@ -25,18 +25,21 @@ class Test02 {
         val n = numbers.size
         val result = numbers.copyOf()
 
-        // 가장 오른쪽 자릿수에 1 더하기
         for (i in n - 1 downTo 0) {
             if (result[i] < 9) {
+                // 가장 오른쪽 자리의 숫자가 `9` 이하인 경우, `+1` 처리하여 반환
                 result[i] += 1
                 return result
             }
+            // 가장 오른쪽 자리의 숫자가 `9` 인 경우, `0` 으로 변경
             result[i] = 0
         }
 
-        // 모든 자리에서 자리 올림이 발생한 경우
+        // 모든 자리에서 `+1` 올림이 발생한 경우
         val answer = IntArray(n + 1)
+        // 맨 앞자리 `1` 변환
         answer[0] = 1
+
         return answer
     }
 

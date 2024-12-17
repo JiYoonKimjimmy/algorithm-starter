@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.buketplace.`2024`
+package me.jimmyberg.algrorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -37,6 +37,10 @@ class Test03 {
     @Test
     fun test() {
         assertEquals(3, solution(intArrayOf(3, 0, 4, 2, 8)))
+        assertEquals(3, solution(intArrayOf(1, 3, 0, 6, 5)))
+        assertEquals(4, solution(intArrayOf(10, 8, 5, 5, 4, 4, 2, 1, 0)))
+        assertEquals(5, solution(intArrayOf(10, 8, 5, 5, 5, 4, 2, 1, 0)))
+        assertEquals(4, solution(intArrayOf(10, 8, 8, 5, 3, 2, 2, 1, 0)))
     }
 
 }

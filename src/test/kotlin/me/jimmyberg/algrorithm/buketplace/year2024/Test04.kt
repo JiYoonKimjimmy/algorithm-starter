@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.buketplace.`2024`
+package me.jimmyberg.algrorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
@@ -25,16 +25,28 @@ class Test04 {
 
         fun dfs(x: Int, y: Int, index: Int): Boolean {
             if (index == word.length) return true
-            if (x < 0 || x >= rows || y < 0 || y >= cols ||
-                visited[x][y] || board[x][y] != word[index].toString()) return false
+            if (x < 0 || x >= rows
+                || y < 0 || y >= cols
+                || visited[x][y]
+                || board[x][y] != word[index].toString()
+            ) {
+                // x < 0 or x 가 행 보다 크거나 같거나,
+                // y < 0 or y 가 열 보다 크거나 같거나,
+                // 이미 방문하였거나,
+                // 셀 기준 문자와 현재 인덱스 문자가 일치하지 않는 경우
+                // `false` 반환
+                return false
+            }
 
+            // 셀 방문 `true` 표시
             visited[x][y] = true
 
-            val result = dfs(x + 1, y, index + 1) ||
-                    dfs(x - 1, y, index + 1) ||
-                    dfs(x, y + 1, index + 1) ||
-                    dfs(x, y - 1, index + 1)
+            val result = dfs(x + 1, y, index + 1) || // 아래로 이동
+                    dfs(x - 1, y, index + 1) ||      // 위로 이동
+                    dfs(x, y + 1, index + 1) ||      // 오른쪽으로 이동
+                    dfs(x, y - 1, index + 1)         // 왼쪽으로 이동
 
+            // 셀 방문 `false` 표시
             visited[x][y] = false
 
             return result
@@ -42,7 +54,9 @@ class Test04 {
 
         for (i in 0 until rows) {
             for (j in 0 until cols) {
-                if (dfs(i, j, 0)) return true
+                if (dfs(i, j, 0)) {
+                    return true
+                }
             }
         }
 

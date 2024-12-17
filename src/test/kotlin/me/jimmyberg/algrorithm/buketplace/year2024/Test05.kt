@@ -1,6 +1,7 @@
-package me.jimmyberg.algrorithm.buketplace.`2024`
+package me.jimmyberg.algrorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class Test05 {
@@ -24,36 +25,47 @@ class Test05 {
      * - 설명 : 1번째 기회에 4+3+7+4 = 18개, 2번째 기회에 1+6+7+2=16개의 동전을 얻어서 총 34개의 동적을 얻을 수 있습니다.
      */
     private fun solution(coins: Array<IntArray>): Int {
-        val m = coins.size
-        val n = coins[0].size
+        val rows = coins.size
+        val cols = coins[0].size
 
-        // Helper function to calculate maximum coins collected from a starting column
-        fun collectMaxCoins(startCol: Int, collected: Array<BooleanArray>): Int {
-            val dp = Array(m) { IntArray(n) }
-            dp[0][startCol] = if (!collected[0][startCol]) coins[0][startCol] else 0
-            collected[0][startCol] = true
+        // DP table to store the maximum coins collected
+        val dp = Array(rows) { Array(cols) { IntArray(cols) } }
 
-            for (i in 1 until m) {
-                for (j in 0 until n) {
-                    var maxCoins = dp[i - 1][j] // from directly above
-                    if (j > 0) maxCoins = maxOf(maxCoins, dp[i - 1][j - 1]) // from top-left diagonal
-                    if (j < n - 1) maxCoins = maxOf(maxCoins, dp[i - 1][j + 1]) // from top-right diagonal
-                    dp[i][j] = maxCoins + if (!collected[i][j]) coins[i][j] else 0
-                    collected[i][j] = true
-                }
+        // Initialize the first row
+        for (j in 0 until cols) {
+            for (k in 0 until cols) {
+                dp[0][j][k] = if (j == k) coins[0][j] else coins[0][j] + coins[0][k]
             }
-
-            return dp[m - 1].maxOrNull() ?: 0
         }
 
-        val collected = Array(m) { BooleanArray(n) }
+        // Fill the DP table
+        for (i in 1 until rows) {
+            for (j in 0 until cols) {
+                for (k in 0 until cols) {
+                    var maxCoins = 0
+                    for (dj in -1..1) {
+                        for (dk in -1..1) {
+                            val prevJ = j + dj
+                            val prevK = k + dk
+                            if (prevJ in 0 until cols && prevK in 0 until cols) {
+                                maxCoins = maxOf(maxCoins, dp[i - 1][prevJ][prevK])
+                            }
+                        }
+                    }
+                    dp[i][j][k] = maxCoins + if (j == k) coins[i][j] else coins[i][j] + coins[i][k]
+                }
+            }
+        }
 
-        // Second chance starting from (0, N-1)
-        val secondChance = collectMaxCoins(n - 1, collected)
-        // First chance starting from (0, 0)
-        val firstChance = collectMaxCoins(0, collected)
+        // Find the maximum coins collected in the last row
+        var maxCoins = 0
+        for (j in 0 until cols) {
+            for (k in 0 until cols) {
+                maxCoins = maxOf(maxCoins, dp[rows - 1][j][k])
+            }
+        }
 
-        return firstChance + secondChance
+        return maxCoins
     }
 
     @Test
@@ -64,7 +76,7 @@ class Test05 {
             intArrayOf(5, 7, 7),
             intArrayOf(4, 2, 2)
         )
-        Assertions.assertEquals(34, solution(coins))
+        assertEquals(34, solution(coins))
     }
 
 }

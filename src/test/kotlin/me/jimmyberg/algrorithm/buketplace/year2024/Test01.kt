@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.buketplace.`2024`
+package me.jimmyberg.algrorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
@@ -20,11 +20,14 @@ class Test01 {
      * - 문자열 s는 영어 소문자로만 구성되어 있습니다.
      */
     private fun solution(s: String): Int {
+        // 주어진 문자열 기준, 개수 카운팅을 위해 Grouping 객체 + eachCount() 함수 사용
         val keys = s.groupingBy { it }.eachCount()
+        // 주어진 문자열별 개수 Map 객체에서 개수가 많은 순서대로 정렬
         val sortedKeys = keys.entries.sortedByDescending { it.value }.map { it.key }
 
         var answer = 0
         for (i in sortedKeys.indices) {
+            // 정렬 배열에서 순서대로 키-press 계산
             val press = when {
                 i < 9 -> 1
                 i < 18 -> 2
