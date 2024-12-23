@@ -23,11 +23,8 @@ class ReTest02 {
      */
     private fun solution(numbers: IntArray): IntArray {
         val size = numbers.size
-        var answer = IntArray(size)
-
-        numbers.forEachIndexed { i, n ->
-            answer[i] = n
-        }
+        var answer = numbers.copyOf()
+//        numbers.forEachIndexed { i, n -> answer[i] = n }
 
         for (i in size - 1 downTo 0 ) {
             val n = numbers[i]
