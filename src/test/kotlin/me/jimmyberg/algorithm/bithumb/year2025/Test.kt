@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.bithumb.year2025
+package me.jimmyberg.algorithm.bithumb.year2025
 
 import org.junit.jupiter.api.Test
 import kotlin.test.assertEquals

@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.buketplace.year2024
+package me.jimmyberg.algorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

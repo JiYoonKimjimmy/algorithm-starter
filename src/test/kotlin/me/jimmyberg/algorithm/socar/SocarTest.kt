@@ -1,4 +1,4 @@
-package me.jimmyberg.algrorithm.socar
+package me.jimmyberg.algorithm.socar
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test

@@ -1,9 +1,9 @@
-package me.jimmyberg.algrorithm.buketplace.year2024
+package me.jimmyberg.algorithm.buketplace.year2024
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-class Test01 {
+class ReTest01 {
 
     /**
      * 9개의 버튼이 있는 키패드가 있습니다. 각 버튼은 1부터 9까지 번호가 매겨져 있으며, 각각 소문자 영어 알파벳에 매핑됩니다.
@@ -20,20 +20,24 @@ class Test01 {
      * - 문자열 s는 영어 소문자로만 구성되어 있습니다.
      */
     private fun solution(s: String): Int {
-        // 주어진 문자열 기준, 개수 카운팅을 위해 Grouping 객체 + eachCount() 함수 사용
-        val keys = s.groupingBy { it }.eachCount()
-        // 주어진 문자열별 개수 Map 객체에서 개수가 많은 순서대로 정렬
-        val sortedKeys = keys.entries.sortedByDescending { it.value }.map { it.key }
-
         var answer = 0
-        for (i in sortedKeys.indices) {
-            // 정렬 배열에서 순서대로 키-press 계산
+
+//        val sMap = mutableMapOf<Char, Int>()
+//        s.forEach {
+//            sMap[it] = (sMap[it] ?: 0) + 1
+//        }
+        val sMap = s.groupingBy { it }.eachCount()
+
+        val sortedMap = sMap.entries.sortedByDescending { it.value }.map { it.key }
+        println(sortedMap)
+
+        sortedMap.forEachIndexed { index, entry ->
             val press = when {
-                i < 9 -> 1
-                i < 18 -> 2
+                index < 9 -> 1
+                index < 18 -> 2
                 else -> 3
             }
-            answer += press * (keys[sortedKeys[i]] ?: 1)
+            answer += press * (sMap[sortedMap[index]] ?: 1)
         }
 
         return answer
